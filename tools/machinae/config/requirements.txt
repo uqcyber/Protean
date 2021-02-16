@@ -1,0 +1,7 @@
+# Machinae Requirements
+yara-python
+psutil
+netaddr
+pylzma
+colorama
+machinae == 1.4.9

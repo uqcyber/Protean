@@ -1,0 +1,3 @@
+# ioc-finder requirements
+ioc-finder == 5.0.0
+pdfplumber
