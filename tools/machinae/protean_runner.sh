@@ -14,8 +14,8 @@ EOF
 #     Setup      #
 # == ++ == ++ == #
 
-# Machinae can either use input from {ioc-finder, custom_filepath}
-if [ "$machinae_data_src" == "ioc-finder" ]
+# Machinae can either use input from {iocextract, ioc-finder, custom_filepath}
+if [ "$machinae_data_src" == "iocextract" ] || [ "$machinae_data_src" == "ioc-finder" ]
 then
     printf "Machinae Data Source: $machinae_data_src\n"
     optional_input_vol="-v ${machinae_data_src}_vol:/machinae_input"
@@ -29,7 +29,7 @@ docker run -d -t\
     -v machinae_vol:/results: \
     jwferreira/machinae
 
-if [ "$machinae_data_src" != "ioc-finder" ]
+if [ "$machinae_data_src" != "iocextract" ] && [ "$machinae_data_src" != "ioc-finder" ]
 then
     printf 'Machinae Data Source: custom file path\n'
     input_filepath="$(dirname $machinae_data_src)"

@@ -1,0 +1,3 @@
+# AIEngine requirements
+yara-python
+requests

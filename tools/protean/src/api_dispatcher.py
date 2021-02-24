@@ -285,16 +285,15 @@ def loadObservables():
 
     if 'extracted_iocs' in protean_json:
         return protean_json['extracted_iocs']
-    elif 'ioc-finder' in protean_json:
-        return protean_json['ioc-finder']
+    elif 'iocextract' in protean_json:
+        return protean_json['iocextract']
     else:
-        print('Could not find required observable dictionary')
-        exit()
+        return protean_json['ioc-finder']
 
 if __name__ == '__main__':
     """
     The dispatcher provides methods to use the Protean's results (specifically observables extracted
-    by iocextract)
+    by iocextract or ioc-finder)
     """
     results_path = os.path.dirname(__file__) + "/results/"
     observables = loadObservables()
@@ -345,6 +344,6 @@ if __name__ == '__main__':
         "virustotal_api_results": vt_handler.output,
     }
 
-    print("[API Dispatcher] Complete")
+    print("[APIDispatcher] Complete")
     with open(results_path + "api_outputs/api_results.json", 'w') as fp:
         json.dump(results, fp)

@@ -1,4 +1,4 @@
-# Protean Lite
+# Protean
 The goal of <span style="
 display: inline-flex;
 justify-content: center;
@@ -20,62 +20,17 @@ color: white;
 "> PROTEAN</span> facilitates connecting an extensible range of tools, their sequential execution and the collation of individual tool outputs into a singular JSON file, or "global view".
 
 #### Included Tools
-Detailed explanations of each tool, their inputs & outputs, contributions made and any additional notes may be found in the README of each tool's subfolder. The current tools and their general purposes are:
+Detailed explanations of each tool, their inputs & outputs, contributions made and any additional notes may be found in the README of each tool's subfolder. The current tools and their general purpose are:
++ **iocextract**: Regex-based IOC Extraction
++ **ioc-finder**: Grammar-based IOC Extraction
++ **Loki**: IOC File Scanner
++ **Machinae**: Threat Intelligence Collection
++ **AIEngine**: Network Packet Scanning
 
-+ <span style="
-display: inline-flex;
-justify-content: center;
-line-height: 14px;
-width: 100px;
-text-align: center;
-border-radius: 5px;
-background: #f0ccde;
-padding: 0.25em; 
-color: #303030;
-font-weight: bold;
-"> IOC-FINDER </span>: Grammar-based IOC Extraction
-+ <span style="
-display: inline-flex;
-justify-content: center;
-line-height: 14px;
-width: 100px;
-text-align: center;
-border-radius: 5px;
-background: #a9c4eb;
-padding: 0.25em; 
-color: #303030;
-font-weight: bold;
-"> MACHINAE </span>: Threat Intelligence Collection
+        The current order is: iocextract / ioc-finder -> machinae -> loki -> aiengine -> collation
 
-The current order is: <span style="
-display: inline-flex;
-justify-content: center;
-line-height: 14px;
-width: 100px;
-text-align: center;
-border-radius: 5px;
-background: #f0ccde;
-padding: 0.25em; 
-color: #303030;
-font-weight: bold;
-"> IOC-FINDER </span> -> <span style="
-display: inline-flex;
-justify-content: center;
-line-height: 14px;
-width: 100px;
-text-align: center;
-border-radius: 5px;
-background: #a9c4eb;
-padding: 0.25em; 
-color: #303030;
-font-weight: bold;
-"> MACHINAE </span> -> collation
 #### Tool Architecture
-<img style="
-display: block;
-width: 250px;
-margin: 0 auto;"
-src=/docs/images/protean_lite_architecture.png/>
+![script architecture diagram](/docs/images/protean_architecture.png)
 
 ## Usage
 ![script architecture diagram](/docs/images/protean_scripts.png)
@@ -124,7 +79,6 @@ Connecting the inputs and outputs of tools is currently achieved through *Docker
 2. configure Tool A to output results to /foobar_vol
 3. mount foobar_vol in Tool B's Docker container via the run command
 4. configure Tool B to read input from /foobar_vol
-
 
 ### Future Work
 + if a selection of tools is decided on for permanent use, create a Python program to handle all required input/output and run in a single container

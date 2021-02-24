@@ -1,0 +1,9 @@
+# Loki requirements
+yara-python
+colorama
+psutil
+netaddr
+pylzma
+rfc5424-logging-handler
+helpers
+parse
